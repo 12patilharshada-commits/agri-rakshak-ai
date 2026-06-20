@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-950 text-slate-100 font-sans antialiased overflow-x-hidden;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(22, 163, 74, 0.15) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(234, 88, 12, 0.1) 0px, transparent 50%),
+      radial-gradient(at 50% 100%, rgba(34, 197, 94, 0.08) 0px, transparent 50%);
+    background-attachment: fixed;
+  }
+}
+
+/* Glassmorphism Styles */
+.glass-panel {
+  @apply bg-slate-900/60 backdrop-blur-md border border-slate-800/80 rounded-2xl shadow-xl shadow-black/20;
+}
+
+.glass-panel-hover {
+  @apply transition-all duration-300 hover:bg-slate-900/85 hover:border-farm-green-600/50 hover:shadow-2xl hover:shadow-farm-green-600/5;
+}
+
+.glass-input {
+  @apply bg-slate-950/40 border border-slate-800 rounded-xl px-4 py-2.5 text-white placeholder-slate-500 focus:outline-none focus:border-farm-green-500 focus:ring-1 focus:ring-farm-green-500 transition-all duration-200;
+}
+
+.glass-card-orange {
+  @apply bg-slate-900/60 backdrop-blur-md border border-orange-500/20 rounded-2xl;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-slate-950;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-800 rounded-full hover:bg-farm-green-600;
+}
+
+/* Pulse / Glow Animations */
+@keyframes slow-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-slow-spin {
+  animation: slow-spin 25s linear infinite;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 3s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Custom map size */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  background-color: #0b1329 !important;
+}
+
+/* SOS Floating Button Animation */
+@keyframes sos-wave {
+  0% { transform: scale(0.95); opacity: 0.8; box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+  70% { transform: scale(1.1); opacity: 0.4; box-shadow: 0 0 0 20px rgba(239, 68, 68, 0); }
+  100% { transform: scale(0.95); opacity: 0.8; box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+.sos-glow {
+  animation: sos-wave 2s infinite;
+}
+
+/* AI Avatar Speaking/Listening waves */
+@keyframes sound-wave-active {
+  0%, 100% { height: 8px; }
+  50% { height: 32px; }
+}
+.wave-bar {
+  display: inline-block;
+  width: 4px;
+  background-color: #22c55e;
+  border-radius: 2px;
+  margin: 0 2px;
+}
+.wave-bar:nth-child(1) { animation: sound-wave-active 1.2s ease-in-out infinite; }
+.wave-bar:nth-child(2) { animation: sound-wave-active 0.8s ease-in-out infinite 0.2s; }
+.wave-bar:nth-child(3) { animation: sound-wave-active 1.4s ease-in-out infinite 0.4s; }
+.wave-bar:nth-child(4) { animation: sound-wave-active 1.0s ease-in-out infinite 0.1s; }
+.wave-bar:nth-child(5) { animation: sound-wave-active 1.3s ease-in-out infinite 0.3s; }
