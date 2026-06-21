@@ -1,0 +1,34 @@
+# Ignore build & virtualenv folders
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+instance/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.lib/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Ignore IDE configs
+.vscode/
+.idea/
+.git/
+.gitignore
+
+# Ignore local database caches & logs
+*.db
+*.log
+uploads/
